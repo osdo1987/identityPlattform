@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "troyavoley",
+    "public": "dist/identity-plattform",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+<div class="container bg-info mt-3 pt-3 pb-5">
+  <span class="login100-form-avatar">
+    <img src="assets\img\troya.png" alt="AVATAR">
+  </span>
+  <div class="centrar card mt-5" style="width: 22rem;">
+    <div class="card-body">
+      <h5 class="card-title">Iniciar Sesión</h5>
+      <p class="card-text">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="usuario.email"
+          placeholder="name@example.com">
+        <label for="exampleFormControlInput2" class="form-label">Password</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" [(ngModel)]="usuario.password"
+          placeholder="password">
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <button class="col-12 btn btn-primary" (click)="ingresar()">Ingresar</button><br>
+      </li>
+      <li class="list-group-item">
+        <button class="col-12 btn btn-light" (click)="logOut()">reset password</button>
+      </li>
+    </ul>
+    <div class="card-body">
+      <h5 *ngIf="userLogged |async as user">Bienvenido {{user.email}}</h5>
+    </div>
+  </div>
+</div>

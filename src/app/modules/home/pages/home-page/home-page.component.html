@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div class="container card">
+  <div class="row">
+  <div class="col-5 col-md-1  mx-2 my-3 card text-center bg-info " style="height: 30%;">
+    <h1>{{totalBuga}}</h1>
+  </div>
+  <div class="col-5 col-md-1  mx-2 my-3 card text-center bg-info" style="height: 30%;">
+    <h1>{{totalOtro}}</h1>
+  </div>
+  <div class="col-12 col-md-6 card my-3">
+    <table class="table table-striped " aria-label="">
+      <thead>
+        <tr>
+          <th>Buga</th>
+          <th class="text-center">Primer Set</th>
+          <th>El otro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let country of countries; index as i">
+          <th class="text-center">
+            <div  *ngIf="country.name !='TOTAL'" class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-danger " (click)="lessPoint(country.code,'local')"><em class="bi bi-dash-circle"></em></button>
+              <button  class="btn ">{{ country.local }}</button>
+              <button type="button" class="btn btn-success "(click)="addPoint(country.code,'local')" ><em class="bi bi-plus-circle"></em></button>
+            </div>
+          </th>
+          <td class="text-center">
+            {{ country.name }}
+          </td>
+          <th class="text-center">
+            <div *ngIf="country.name !='TOTAL'" class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-danger " (click)="lessPoint(country.code,'visit')"><em class="bi bi-dash-circle"></em></button>
+              <button type="button" class="btn ">{{ country.visit }}</button>
+              <button type="button" class="btn btn-success " (click)="addPoint(country.code,'visit')"><em class="bi bi-plus-circle"></em></button>
+            </div>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
