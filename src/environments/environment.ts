@@ -4,13 +4,14 @@
 
 export const environment = {
   production: false,
+  baseUrl: 'https://pokeapi.co/api/v2',
   firebaseConfig:{
-    apiKey: "AIzaSyDEqBM5Ne5DtvoKD8XmM8zvgWwiZe4UyuM",
-  authDomain: "apposdo.firebaseapp.com",
-  projectId: "apposdo",
-  storageBucket: "apposdo.appspot.com",
-  messagingSenderId: "128274241427",
-  appId: "1:128274241427:web:e5e9400215b9c3f7d73a66"
+    apiKey: "AIzaSyCpAX7xfH3iSK4j2ET1Jhrv33hNjHkUYFo",
+  authDomain: "pedagologic.firebaseapp.com",
+  projectId: "pedagologic",
+  storageBucket: "pedagologic.appspot.com",
+  messagingSenderId: "150562282346",
+  appId: "1:150562282346:web:ac288dcb21275a82526313"
   }
 };
 

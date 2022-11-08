@@ -13,6 +13,7 @@ import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { SiginuserComponent } from './modules/user/pages/siginuser/siginuser.component';
 import { CreateQuestionComponent } from './modules/question/pages/create-question/create-question.component';
 import { ShowWinnersComponent } from './modules/user/pages/show-winners/show-winners.component';
+import { HttpClientModule, } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { ShowWinnersComponent } from './modules/user/pages/show-winners/show-win
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
