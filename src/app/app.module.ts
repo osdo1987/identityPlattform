@@ -14,6 +14,7 @@ import { SiginuserComponent } from './modules/user/pages/siginuser/siginuser.com
 import { CreateQuestionComponent } from './modules/question/pages/create-question/create-question.component';
 import { ShowWinnersComponent } from './modules/user/pages/show-winners/show-winners.component';
 import { HttpClientModule, } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { HttpClientModule, } from '@angular/common/http';
     AngularFirestoreModule,
     NgbModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

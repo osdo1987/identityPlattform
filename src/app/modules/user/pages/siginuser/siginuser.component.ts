@@ -1,6 +1,8 @@
 import { Player } from './../../../../data/models/player.model';
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-siginuser',
@@ -16,17 +18,24 @@ export class SiginuserComponent implements OnInit {
   }
 
   urlImg:any;
-
-
-
+  formLogin:FormGroup= new FormGroup({});
 
 
   constructor(private _sharedService:SharedService) { }
 
   ngOnInit(): void {
-    //this.newPlayer();
+
+    this.formLogin = new FormGroup(
+      {
+        username:new FormControl('',
+          [Validators.required
+          ])
+      }
+    );
     this.getPokemons();
   }
+
+
 
   getPokemons() {
     let pokemonData;
@@ -48,6 +57,10 @@ export class SiginuserComponent implements OnInit {
 
 
   newPlayer(){
+    const{username} = this.formLogin.value;
+    this.player.username=username;
+    this.player.urlImg=this.urlImg;
+    this.player.score=0;
     this._sharedService.addPlayer(this.player,"Games").then(
       ()=>{
         console.log("ok osdito");
