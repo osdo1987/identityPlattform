@@ -1,3 +1,4 @@
+
 import { Player } from './../../data/models/player.model';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
@@ -18,6 +19,10 @@ export class SharedService {
   }
   addPlayer(player: Player,collection:any) :Promise<any>{
     return this.afs.collection(collection).doc("1").collection("Players").add(player);
+  }
+
+  getAllPlayers(collection:string):Observable<any>{
+    return this.afs.collection(collection).doc("1").collection("Players").snapshotChanges();
   }
 
   getUrlPokemon(index:number){

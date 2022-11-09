@@ -2,6 +2,7 @@ import { Player } from './../../../../data/models/player.model';
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class SiginuserComponent implements OnInit {
   formLogin:FormGroup= new FormGroup({});
 
 
-  constructor(private _sharedService:SharedService) { }
+  constructor(private _sharedService:SharedService,
+    private router:Router) { }
 
   ngOnInit(): void {
 
@@ -64,6 +66,7 @@ export class SiginuserComponent implements OnInit {
     this._sharedService.addPlayer(this.player,"Games").then(
       ()=>{
         console.log("ok osdito");
+        this.router.navigate(['auth/players']);
       }
     );
   }

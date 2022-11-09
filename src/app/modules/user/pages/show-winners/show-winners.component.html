@@ -1,1 +1,22 @@
-<p>show-winners works!</p>
+
+<div class="container mt-5">
+  <h1 class="text-center mb-5">Jugadores</h1>
+  <div *ngFor="let item of players" class="card w-100 my-2">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3 text-center">
+          <img [src]="item.urlImg" class="img-thumbnail rounded-circle bg-info" alt="...">
+        </div>
+        <div class="col-6 mt-4 text-center">
+          <h1>{{item.username| uppercase}}</h1>
+        </div>
+        <div class="col-3 mt-4 text-center">
+          <h1>{{item.score}}</h1>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
