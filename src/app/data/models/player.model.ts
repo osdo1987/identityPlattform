@@ -4,3 +4,14 @@ export interface Player {
             urlImg:string,
             score:number
 }
+
+export interface Question {
+
+  enum:string,
+  r1:string,
+  r2:string,
+  r3:string,
+  r4:string,
+  correct:number
+}
+

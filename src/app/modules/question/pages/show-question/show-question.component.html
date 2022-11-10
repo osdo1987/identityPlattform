@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-10 bg-info card text-center mx-auto mt-5"><h1>{{pregunta.enum}}</h1></div>
+  </div>
+  <form>
+    <div class="row">
+      <button id="1" (click)="seleccionaPregunta(1)" class="offset-md-1 col-md-5 col-12 btn btn-primary my-1" ><h1>{{pregunta.r1}}</h1></button>
+      <button id="2" (click)="seleccionaPregunta(2)" class="col-12 col-md-5 btn btn-success my-1 mr-1" ><h1>{{pregunta.r2}}</h1></button>
+    </div>
+    <div class="row">
+      <button id="3" (click)="seleccionaPregunta(3)" class="offset-md-1 col-md-5 col-12 btn btn-danger my-1 mr-1" ><h1>{{pregunta.r3}}</h1></button>
+      <button id="4" (click)="seleccionaPregunta(4)" class="col-12 col-md-5 btn btn-warning my-1 mr-1"><h1>{{pregunta.r4}}</h1></button>
+    </div>
+  </form>
+</div>

@@ -1,22 +1,19 @@
 
 <div class="container mt-5">
   <h1 class="text-center mb-5">Jugadores</h1>
-  <div *ngFor="let item of players" class="card w-100 my-2">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-3 text-center">
-          <img [src]="item.urlImg" class="img-thumbnail rounded-circle bg-info" alt="...">
+  <div class="row m-auto">
+    <div *ngFor="let item of players" class="card col-md-5 mx-2 my-2">
+      <div class="card-body row ">
+            <div class="col-3 text-center">
+              <img [src]="item.urlImg" class="pd-0 img-thumbnail rounded-circle bg-info" alt="...">
+            </div>
+            <div class="col-6 mt-4 text-center">
+              <h3>{{item.username| uppercase}}</h3>
+            </div>
+            <div class="col-3 mt-4 text-center">
+              <h3>{{item.score}}</h3>
+            </div>
         </div>
-        <div class="col-6 mt-4 text-center">
-          <h1>{{item.username| uppercase}}</h1>
-        </div>
-        <div class="col-3 mt-4 text-center">
-          <h1>{{item.score}}</h1>
-        </div>
-
       </div>
-
-
-    </div>
   </div>
-</div>
+  </div>

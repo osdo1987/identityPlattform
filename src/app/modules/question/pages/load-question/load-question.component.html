@@ -1,0 +1,31 @@
+<h1>Load question </h1>
+
+<div class="container">
+  <form [formGroup]="formQuestion" (ngSubmit)="newQuestion()">
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Enunciado de la pregunta</label>
+      <textarea class="form-control" formControlName="enumciado" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Opcion 1</label>
+      <input type="text" class="form-control" formControlName="ans1" placeholder="Opcion">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Opcion 2</label>
+      <input type="text" class="form-control" formControlName="ans2" placeholder="Opcion">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Opcion 3</label>
+      <input type="text" class="form-control" formControlName="ans3" placeholder="Opcion">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Opcion 4</label>
+      <input type="text" class="form-control" formControlName="ans4" placeholder="Opcion">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Opcion correcta</label>
+      <input type="text" class="form-control" formControlName="ansTrue" placeholder="Opcion">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!formQuestion.valid">Guardar Pregunta</button>
+  </form>
+</div>

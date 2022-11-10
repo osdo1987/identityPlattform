@@ -1,8 +1,9 @@
 import { ShowWinnersComponent } from './../user/pages/show-winners/show-winners.component';
-import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SiginuserComponent } from '../user/pages/siginuser/siginuser.component';
+import { ShowQuestionComponent } from '../question/pages/show-question/show-question.component';
+import { LoadQuestionComponent } from '../question/pages/load-question/load-question.component';
 
 const routes: Routes = [
   {path:'login',
@@ -11,9 +12,16 @@ const routes: Routes = [
   {path:'players',
     component:ShowWinnersComponent
   },
+  {path:'question',
+    component:ShowQuestionComponent
+  },
+  {path:'loadquestion',
+    component:LoadQuestionComponent
+  },
   {
     path: '', redirectTo: 'login', pathMatch: 'full'
-  }
+  },
+
 ];
 
 @NgModule({

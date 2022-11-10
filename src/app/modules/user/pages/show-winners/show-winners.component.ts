@@ -17,9 +17,10 @@ export class ShowWinnersComponent implements OnInit {
   }
 
   getPlayers(){
-    this.players = [];
+
     this._sharedService.getAllPlayers("Games").subscribe(
       data=>{
+        this.players = [];
         data.forEach((element:any) => {
           this.players.push({
             id:element.payload.doc.id,

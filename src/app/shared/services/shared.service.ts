@@ -1,5 +1,5 @@
 
-import { Player } from './../../data/models/player.model';
+import { Player, Question } from './../../data/models/player.model';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
@@ -27,5 +27,13 @@ export class SharedService {
 
   getUrlPokemon(index:number){
     return this.http.get<any>(`${this.baseUrl}/pokemon/${index}`);
+  }
+
+  getAllQuestion(collection:string):Observable<any>{
+    return this.afs.collection(collection).doc("1").collection("Questions").snapshotChanges();
+  }
+
+  addQuestion(question: Question,collection:any) :Promise<any>{
+    return this.afs.collection(collection).doc("1").collection("Questions").add(question);
   }
 }

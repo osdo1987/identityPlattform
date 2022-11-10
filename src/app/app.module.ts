@@ -15,6 +15,8 @@ import { CreateQuestionComponent } from './modules/question/pages/create-questio
 import { ShowWinnersComponent } from './modules/user/pages/show-winners/show-winners.component';
 import { HttpClientModule, } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ShowQuestionComponent } from './modules/question/pages/show-question/show-question.component';
+import { LoadQuestionComponent } from './modules/question/pages/load-question/load-question.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SiginuserComponent,
     CreateQuestionComponent,
     ShowWinnersComponent,
+    ShowQuestionComponent,
+    LoadQuestionComponent,
   ],
   imports: [
     BrowserModule,
