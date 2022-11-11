@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SiginuserComponent } from '../user/pages/siginuser/siginuser.component';
 import { ShowQuestionComponent } from '../question/pages/show-question/show-question.component';
 import { LoadQuestionComponent } from '../question/pages/load-question/load-question.component';
+import { CreateQuestionComponent } from '../question/pages/create-question/create-question.component';
 
 const routes: Routes = [
   {path:'login',
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {path:'loadquestion',
     component:LoadQuestionComponent
+  },
+  {path:'endgame',
+    component:CreateQuestionComponent
   },
   {
     path: '', redirectTo: 'login', pathMatch: 'full'

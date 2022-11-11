@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,30 @@ export class SharedService {
 
   addQuestion(question: Question,collection:any) :Promise<any>{
     return this.afs.collection(collection).doc("1").collection("Questions").add(question);
+  }
+
+  mostrarVentana(mensaje:string){
+    Swal.fire({
+      title: mensaje,
+      width: 600,
+      padding: '3em',
+      color: '#716add',
+      background: '#fff url(/images/trees.png)',
+      backdrop: `
+        rgba(0,0,123,0.4)
+        url("/images/nyan-cat.gif")
+        left top
+        no-repeat
+      `
+    });
+
+  }
+
+  aumentarMarcador(id:any,data:Player):Promise<any>{
+    return this.afs.collection("Games").doc("1").collection("Players").doc(id).update(data);
+  }
+
+  obtenerJugador(id:any):Observable<any>{
+    return this.afs.collection("Games").doc("1").collection("Players").doc(id).snapshotChanges();
   }
 }

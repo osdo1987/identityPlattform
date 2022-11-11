@@ -15,7 +15,8 @@ export class SiginuserComponent implements OnInit {
   player:Player={
     username:"",
     urlImg:"",
-    score:0
+    score:0,
+    id:false
   }
 
   urlImg:any;
@@ -64,9 +65,11 @@ export class SiginuserComponent implements OnInit {
     this.player.urlImg=this.urlImg;
     this.player.score=0;
     this._sharedService.addPlayer(this.player,"Games").then(
-      ()=>{
+      (resp)=>{
         console.log("ok osdito");
+        sessionStorage.setItem("id",resp.id);
         this.router.navigate(['auth/players']);
+
       }
     );
   }

@@ -1,7 +1,8 @@
 import { Router } from '@angular/router';
-import { Question } from './../../../../data/models/player.model';
+import { Player, Question } from './../../../../data/models/player.model';
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared/services/shared.service';
+
 
 @Component({
   selector: 'app-show-question',
@@ -18,6 +19,8 @@ export class ShowQuestionComponent implements OnInit {
     r4:"",
     correct:0
   }
+  player!:Player;
+  idPlayer:any;
 
   numeroPregunta:number=0;
   constructor(private _sharedService:SharedService,
@@ -25,6 +28,8 @@ export class ShowQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQuestions();
+    this.idPlayer=sessionStorage.getItem("id");
+    this.obtenerJugador(this.idPlayer);
   }
 
   getQuestions(){
@@ -38,7 +43,6 @@ export class ShowQuestionComponent implements OnInit {
           });
         });
         this.obtenerPregunta();
-
       }
     );
   }
@@ -47,20 +51,40 @@ export class ShowQuestionComponent implements OnInit {
     if(this.numeroPregunta < this.questions.length){
       this.pregunta=this.questions[this.numeroPregunta];
     }else if(this.numeroPregunta >= this.questions.length){
-      this.router.navigate(['auth/players']);
+      this.router.navigate(['auth/endgame/']);
     }
-    console.log(this.questions);
-    console.log(this.pregunta)
     this.numeroPregunta++;
   }
+
   seleccionaPregunta(opcion:number){
 
     if(opcion == this.pregunta.correct){
-      console.log("felicitaciones")
+      this._sharedService.mostrarVentana("Felicitaciones Respuesta correcta");
+      this.aumentarScore(this.idPlayer,10000);
     }else{
-      console.log("lo sentimos erraste")
+      this._sharedService.mostrarVentana("Lo sentimos respuesta incorrecta");
+      this.aumentarScore(this.idPlayer,600);
     }
     this.obtenerPregunta();
   }
+
+  aumentarScore(id:string,score:number){
+    this.player.score=this.player.score+score;
+    this._sharedService.aumentarMarcador(id,this.player).then(
+      ()=>{console.log("Se actualizo")}
+    );
+  }
+
+  obtenerJugador(id:string){
+    this._sharedService.obtenerJugador(id).subscribe(
+      data=>{
+        this.player=data.payload.data();
+      }
+    );
+  }
+
+
+
+
 
 }
